@@ -407,8 +407,7 @@ void sendQueueCmd(void)
           case 29: //M29
             if (!fromTFT)
             {
-              mustStoreScript("M105\nM114\nM220\n");
-              storeCmd("M221 D%d\n",heatGetCurrentTool());
+              storeCmd("M105\nM114\nM220\n");
               ispolling = true;
             }
               break;

@@ -74,7 +74,7 @@
 /**
  * Text displayed at the top of the TFT in Marlin Mode.
  */
-#define MARLIN_BANNER_TEXT "LCD12864 Simulator"
+#define MARLIN_BANNER_TEXT "SKR MPCNC Plasma"
 
 /**
  * show banner text at the top of the TFT in Marlin Mode.
@@ -111,7 +111,7 @@
  *
  * :[2400: 0, 9600: 1, 19200: 2, 38400: 3, 57600: 4, 115200: 5, 250000: 6, 500000: 7, 1000000: 8]
  */
-#define BAUDRATE 5
+#define BAUDRATE 6
 
 /**
  * Default Primary Language (for Touch-Mode only)

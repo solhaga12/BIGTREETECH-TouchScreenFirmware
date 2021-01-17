@@ -266,7 +266,12 @@ void menuStatus(void)
   {
     if(infoHost.connected != lastConnection_status)
     {
-      statusScreen_setReady();
+      if(infoHost.connected == false){
+        statusScreen_setMsg(textSelect(LABEL_STATUS), textSelect(LABEL_UNCONNECTED));
+      }
+      else{
+        statusScreen_setMsg(textSelect(LABEL_STATUS), textSelect(LABEL_READY));
+      }
       lastConnection_status = infoHost.connected;
     }
     if (msgNeedRefresh)

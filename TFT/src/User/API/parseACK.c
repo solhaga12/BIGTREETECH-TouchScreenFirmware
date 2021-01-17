@@ -294,17 +294,7 @@ void parseACK(void)
       {
         ackPopupInfo(errormagic);
       }
-      //the first response should be such as "T:25/50\n"
-      if (!(ack_seen("@") && ack_seen("T:")) && !ack_seen("T0:"))  goto parse_end;
-      if (ack_seen(heaterID[BED])) infoSettings.bed_en = ENABLED;
-      if (ack_seen(heaterID[CHAMBER])) infoSettings.chamber_en = ENABLED;
-      uint8_t i;
-      for (i = NOZZLE0; i < MAX_HOTEND_COUNT; i++)
-      {
-        if(!ack_seen(heaterID[i])) break;
-      }
-      infoSettings.hotend_count = i ? i : 1;
-      if (infoSettings.ext_count < infoSettings.hotend_count) infoSettings.ext_count = infoSettings.hotend_count;
+     if(!ack_seen("T:") && !ack_seen("T0:"))  goto parse_end;  //the first response should be such as "T:25/50\n"
       updateNextHeatCheckTime();
       infoHost.connected = true;
 

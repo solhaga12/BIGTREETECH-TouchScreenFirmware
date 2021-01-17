@@ -1,7 +1,7 @@
 #include "SpeedControl.h"
 #include "includes.h"
 
-const char *const speedCmd[SPEED_NUM] = {"M220","M221"};
+const char *const speedCmd[SPEED_NUM] = {"M220"};
 
 static uint16_t setPercent[SPEED_NUM]     = {100, 100};  //Speed  Flow
 static uint16_t lastSetPercent[SPEED_NUM] = {100, 100};  //Speed  Flow
@@ -55,6 +55,6 @@ void speedQuery(void)
 {
   if (infoHost.connected && !infoHost.wait && !speedQueryWait)
   {
-    speedQueryWait = storeCmd("M220\nM221 D%d\n",heatGetCurrentTool());
+    speedQueryWait = storeCmd("M220\n");
   }
 }

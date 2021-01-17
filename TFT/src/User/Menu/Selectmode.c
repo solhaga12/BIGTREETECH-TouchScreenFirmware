@@ -32,11 +32,11 @@ void drawModeIcon(void)
   GUI_RestoreColorDefault();
 
   if(infoSettings.marlin_type == LCD12864)
-    GUI_DispStringInPrect(&mode_title_rect[0],(uint8_t *)"LCD12864 Mode");
+    GUI_DispStringInPrect(&mode_title_rect[0],(uint8_t *)"Marlin");
   else
     GUI_DispStringInPrect(&mode_title_rect[0],(uint8_t *)"LCD2004 Mode");
 
-  GUI_DispStringInPrect(&mode_title_rect[1],(uint8_t *)"Touch Mode");
+  GUI_DispStringInPrect(&mode_title_rect[1],(uint8_t *)"TFT");
 }
 
 bool LCD_ReadPen(uint16_t intervals)

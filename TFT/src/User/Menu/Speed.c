@@ -52,7 +52,7 @@ void menuSpeed(void)
 
   percentageItems.items[KEY_ICON_5] = itemPercent[percentSteps_index];
 
-  storeCmd("M220\nM221 D%d\n", heatGetCurrentTool());
+  storeCmd("M220\n");
   KEY_VALUES key_num;
   LASTSPEED lastSpeed;
   speedSetPercent(item_index, speedGetCurPercent(item_index));

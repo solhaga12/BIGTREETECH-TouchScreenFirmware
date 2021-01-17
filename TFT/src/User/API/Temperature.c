@@ -196,23 +196,16 @@ void loopCheckHeater(void)
   // to automatically report the temperatures.
   if (!infoMachineSettings.autoReportTemp)
   {
-    do
-    {
-      // Send M105 query temperature continuously
-      if (heat_update_waiting == true)
-      {
-        updateNextHeatCheckTime();
-        break;
-      }
-      if (OS_GetTimeMs() < nextHeatCheckTime)
-        break;
-      if (requestCommandInfoIsRunning())  // To avoid colision in Gcode response processing
-        break;
-      if (storeCmd("M105\n") == false)
-        break;
-      updateNextHeatCheckTime();
-      heat_update_waiting = true;
-    } while (0);
+  do
+  {  // Send M105 query temperature continuously
+    if(heat_update_waiting == true) {updateNextHeatCheckTime();break;}
+    if(OS_GetTimeMs() < nextHeatCheckTime)          break;
+    if(requestCommandInfoIsRunning())               break; //to avoid colision in Gcode response processing
+    if(infoMenu.menu[infoMenu.cur] == menuTerminal) break; //to avoid M105 during terminal viewing
+    if(storeCmd("M105\n") == false)                 break;
+    updateNextHeatCheckTime();
+    heat_update_waiting = true;
+  }while(0);
   }
   else // check temperature auto-report timout and resend M155 command
   {
