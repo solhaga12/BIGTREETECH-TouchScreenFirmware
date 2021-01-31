@@ -74,7 +74,7 @@
 /**
  * Text displayed at the top of the TFT in Marlin Mode.
  */
-#define MARLIN_BANNER_TEXT "SKR MPCNC Plasma"
+#define MARLIN_BANNER_TEXT "SKR Plasma"
 
 /**
  * show banner text at the top of the TFT in Marlin Mode.
